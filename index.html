@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Busque, compare y después compre: los precios en el AMBA</title>
+<link rel="canonical" href="https://kevinlpagnotta.github.io/precios-sepa/">
+<meta property="og:title" content="Busque, compare y después compre: los precios en el AMBA">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kevinlpagnotta.github.io/precios-sepa/">
 <meta name="description" content="Qué nos dice la base SEPA (Precios Claros) sobre los precios de supermercados e hipermercados en el AMBA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,7 +135,7 @@ figure.graf iframe{display:block;width:100%;border:1px solid var(--line);border-
 <p>Tres comentarios finales. El primero es consumir con moderación. Este ejercicio es de carácter predictivo y por ende no busca explicar la brecha per se. El segundo, es que no incorpora marcas propias, algo bastante importante para explicar cómo se diferencian las empresas y a qué segmento del mercado apuntan. De todas formas, esto no quiere decir que las marcas que no son propias no son utilizadas para competir. De hecho, cuando uno ve por categorías puede ver divergencias entre productos relacionados a quesos, explicando positivamente la brecha de una empresa y negativamente la de otra. No obstante, el promedio general compensa esas diferencias para el modelo. Tercero, las variables territoriales como ingreso pueden no parecer importantes al modelo, pero no quiere decir que no sea importante para las empresas. Éstas seguramente vean el nivel de ingreso de un barrio y en función de eso decidan con qué bandera desembarcar. En este caso, la variable bandera del modelo estaría capturando información de esa índole.</p>
 <h2 id="poder-decir-adiós-es-crecer">3. Poder decir adiós es crecer</h2>
 <p>Lamentablemente hasta acá llegamos, al menos por el momento. La vasta base de datos SEPA ofrece una pista importante para entender cómo las grandes cadenas comerciales eligen cuánto cobrar, cómo compiten y cómo se ven afectadas por el tránsito de la economía nacional y las políticas de las diferentes jurisdicciones. De todas formas, este aparente potencial se ve limitado por algunas inconsistencias en los datos, la divertida lucha a la que uno se enfrenta cuando los campos son de texto libre y la falta de calidad en una parte importante del reporte (como las promociones, que no presentan un criterio unificado). Asimismo, no ofrecen una foto completa del mercado al que una persona se enfrenta cuando decide hacer las compras: faltan los típicos comercios de cercanía y, bastante importante, el volumen de las ventas de cada uno de los productos. Pero lo que hay obliga a uno a ser creativo. Espero al menos se hayan encontrado con eso (y, por qué no, se hayan divertido).</p>
-<p>Por último, si llegaste hasta acá y te gusta divertirte con estas cuestiones, hay una buena noticia para vos. Por un lado, para aquellos más preocupados por la consistencia técnica de la fuerte afirmación de que el aumento de TSH en Lanús implicó un sostenido traslado a precios, tienen a disposición en <a href="https://github.com/kevinlpagnotta?tab=repositories" target="_blank" rel="noopener">GitHub</a> un documento técnico donde se aplica diferencias en diferencias y event study (con sus correspondientes chequeos de robustez) para validar con mayor solidez la afirmación. Además, está disponible el script con el que se realizó el documento y la base correspondiente para su replicación. Por el otro, en el mismo repositorio se encuentra el script donde se corrió el LGBM, donde se podrá ver las decisiones de preprocesamiento, producción y los resultados de la predicción.</p>
+<p>Por último, si llegaste hasta acá y te gusta divertirte con estas cuestiones, hay una buena noticia para vos. Por un lado, para aquellos más preocupados por la consistencia técnica de la fuerte afirmación de que el aumento de TSH en Lanús implicó un sostenido traslado a precios, tienen a disposición en <a href="https://github.com/kevinlpagnotta/precios-sepa" target="_blank" rel="noopener">GitHub</a> un documento técnico donde se aplica diferencias en diferencias y event study (con sus correspondientes chequeos de robustez) para validar con mayor solidez la afirmación. Además, está disponible el script con el que se realizó el documento y la base correspondiente para su replicación. Por el otro, en el mismo repositorio se encuentra el script donde se corrió el LGBM, donde se podrá ver las decisiones de preprocesamiento, producción y los resultados de la predicción.</p>
 
 </article>
 <section class="compartir" aria-labelledby="comp">
@@ -152,16 +156,16 @@ figure.graf iframe{display:block;width:100%;border:1px solid var(--line);border-
 <ol>
 <li id="fn1"><p>Véase <a href="https://www.infobae.com/salud/2023/10/24/alertan-por-la-falta-de-insumos-medicos-para-cirugias-y-estudios-de-diagnostico/" target="_blank" rel="noopener">https://www.infobae.com/salud/2023/10/24/alertan-por-la-falta-de-insumos-medicos-para-cirugias-y-estudios-de-diagnostico/</a> y <a href="https://chequeado.com/el-explicador/que-es-el-sira-el-sistema-de-importaciones-de-la-gestion-de-alberto-fernandez-que-esta-siendo-investigado-por-la-justicia/" target="_blank" rel="noopener">https://chequeado.com/el-explicador/que-es-el-sira-el-sistema-de-importaciones-de-la-gestion-de-alberto-fernandez-que-esta-siendo-investigado-por-la-justicia/</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Regía en aquel entonces el siguiente esquema <a href="https://www.bcra.gob.ar/archivos/Pdfs/comytexord/A7917.pdf" target="_blank" rel="noopener">https://www.bcra.gob.ar/archivos/Pdfs/comytexord/A7917.pdf</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>https://www.lanacion.com.ar/politica/el-gobierno-anuncio-que-abre-las-importaciones-para-productos-de-la-canasta-basica-nid12032024/<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>https://www.infobae.com/economia/2024/09/16/los-supermercados-en-pie-de-guerra-por-las-tasas-municipales-aumentaron-33-los-precios-en-lanus/<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://www.lanacion.com.ar/politica/el-gobierno-anuncio-que-abre-las-importaciones-para-productos-de-la-canasta-basica-nid12032024/" target="_blank" rel="noopener">https://www.lanacion.com.ar/politica/el-gobierno-anuncio-que-abre-las-importaciones-para-productos-de-la-canasta-basica-nid12032024/</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://www.infobae.com/economia/2024/09/16/los-supermercados-en-pie-de-guerra-por-las-tasas-municipales-aumentaron-33-los-precios-en-lanus/" target="_blank" rel="noopener">https://www.infobae.com/economia/2024/09/16/los-supermercados-en-pie-de-guerra-por-las-tasas-municipales-aumentaron-33-los-precios-en-lanus/</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></section>
 
 </main>
 <script>
 {
-  const SHARE='https://claude.ai/artifact/44SupkdErw28EF4Hr9xZy3';
+  const SHARE='https://kevinlpagnotta.github.io/precios-sepa/';
   const onClaude=/claude\.ai$|claudeusercontent|claude\.site/.test(location.hostname)||location.hostname==='';
-  const url=(SHARE&&onClaude)?SHARE:location.href.split('#')[0];
+  const url=SHARE||location.href.split('#')[0];
   const t=document.title;
   const e=encodeURIComponent, U=e(url), T=e(t);
   const set=(id,h)=>{const a=document.getElementById(id);if(a)a.href=h};

@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+body{font-family:'Roboto Mono',monospace;margin:0;padding:14px;background:#ffffff;color:#212B3F;}
+.dashboard-card{border:1px solid #cbd5e1;border-radius:10px;padding:16px 20px 12px 20px;box-shadow:0 4px 12px rgba(33,43,63,0.06);background:#fff;}
+.filter-bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid #e2e8f0;margin-bottom:10px;}
+.filter-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;color:#64748b;}
+.chips-group{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{font-family:'Roboto Mono',monospace;font-size:11.5px;font-weight:500;padding:5px 12px;border-radius:16px;border:1.5px solid #cbd5e1;background:#f8fafc;color:#334155;cursor:pointer;user-select:none;transition:all 0.15s ease;}
+.chip:hover{border-color:#212B3F;}.chip.active{background:#212B3F;color:#fff;border-color:#212B3F;}
+.filter-select{min-width:220px;padding:6px 12px;font-family:'Roboto Mono',monospace;font-size:12px;color:#212B3F;border:1.5px solid #212B3F;border-radius:6px;background:#f8fafc;cursor:pointer;}
+.chart{width:100%;}
+.chart-footer{font-family:'Literata',Georgia,serif;font-size:12px;color:#64748b;margin-top:6px;padding-left:4px;}
+.chart-note{font-family:'Literata',Georgia,serif;font-style:italic;font-size:11.5px;color:#64748b;margin-top:4px;padding-left:4px;line-height:1.45;}
+</style></head><body><div class="dashboard-card">
+<div class="filter-bar"><span class="filter-label">Ver por:</span><div class="chips-group" id="chips">
+<div class="chip active" data-g="empresas" onclick="sel(this)">Empresa</div><div class="chip" data-g="banderas" onclick="sel(this)">Bandera</div></div></div>
+<div id="chart-comp" class="chart" style="height:560px;"></div>
+<div class="chart-footer">Fuente: Kevin Pagnotta en base a SEPA</div><div class="chart-note">Nota: participación de cada grupo de variables en el valor SHAP absoluto medio de la predicción de la brecha de precios de octubre de 2026. Territorial: latitud, longitud, decil de ingreso del entorno, rivales a 1 km y sucursal. Negocio: categoría, importado, n° de productos, concentración de marca y dispersión de precios. Cadena: bandera, empresa y formato. Se excluye de la explicación la brecha rezagada.</div></div>
+<script>
+const D={"banderas": [{"nombre": "DIA", "seccion": "Supermercados", "Territorial": 4.7, "Negocio": 35.9, "Cadena": 54.5, "Calendario": 4.9}, {"nombre": "Carrefour Express", "seccion": "Supermercados", "Territorial": 3.2, "Negocio": 28.4, "Cadena": 62.6, "Calendario": 5.8}, {"nombre": "Carrefour Market", "seccion": "Supermercados", "Territorial": 18.3, "Negocio": 41.1, "Cadena": 36.7, "Calendario": 3.9}, {"nombre": "Disco", "seccion": "Supermercados", "Territorial": 25.1, "Negocio": 12.8, "Cadena": 58.8, "Calendario": 3.3}, {"nombre": "SuperChangomas", "seccion": "Supermercados", "Territorial": 14.6, "Negocio": 19.9, "Cadena": 62.1, "Calendario": 3.4}, {"nombre": "Coto", "seccion": "Hipermercados", "Territorial": 7.6, "Negocio": 36.3, "Cadena": 53.1, "Calendario": 3.1}, {"nombre": "Carrefour Hiper", "seccion": "Hipermercados", "Territorial": 14.4, "Negocio": 59.5, "Cadena": 21.3, "Calendario": 4.9}, {"nombre": "Jumbo", "seccion": "Hipermercados", "Territorial": 17.4, "Negocio": 13.5, "Cadena": 66.0, "Calendario": 3.1}, {"nombre": "Vea", "seccion": "Hipermercados", "Territorial": 15.7, "Negocio": 18.8, "Cadena": 62.6, "Calendario": 2.9}, {"nombre": "Changomas", "seccion": "Hipermercados", "Territorial": 6.6, "Negocio": 24.0, "Cadena": 65.8, "Calendario": 3.6}, {"nombre": "HiperChangomas", "seccion": "Hipermercados", "Territorial": 12.7, "Negocio": 37.3, "Cadena": 46.6, "Calendario": 3.5}], "empresas": [{"nombre": "Carrefour", "seccion": "Empresas", "Territorial": 4.3, "Negocio": 29.9, "Cadena": 60.1, "Calendario": 5.6}, {"nombre": "Cencosud", "seccion": "Empresas", "Territorial": 21.7, "Negocio": 13.8, "Cadena": 61.3, "Calendario": 3.2}, {"nombre": "ChangoMás", "seccion": "Empresas", "Territorial": 10.5, "Negocio": 25.8, "Cadena": 60.1, "Calendario": 3.5}, {"nombre": "Coto", "seccion": "Empresas", "Territorial": 7.6, "Negocio": 36.3, "Cadena": 53.1, "Calendario": 3.1}, {"nombre": "DIA", "seccion": "Empresas", "Territorial": 4.7, "Negocio": 35.9, "Cadena": 54.5, "Calendario": 4.9}]};const BL=["Territorial", "Negocio", "Cadena", "Calendario"];const COL={"Cadena": "#212B3F", "Negocio": "#646B79", "Territorial": "#9BA0A9", "Calendario": "#D3D5D9"};const CR={"DIA": "#A60321", "Carrefour Express": "#212B3F", "Carrefour Market": "#212B3F", "Carrefour Hiper": "#212B3F", "Carrefour Maxi": "#212B3F", "Maxi": "#212B3F", "Coto": "#D97B66", "Jumbo": "#85BAEA", "Disco": "#85BAEA", "Vea": "#85BAEA", "Changomas": "#6C8547", "HiperChangomas": "#6C8547", "SuperChangomas": "#6C8547", "Carrefour": "#212B3F", "Cencosud": "#85BAEA", "ChangoMás": "#6C8547"};
+let g='empresas';
+function sel(el){document.querySelectorAll('#chips .chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');g=el.getAttribute('data-g');render();}
+function render(){
+ const R=D[g];const y=R.map(r=>(g==='banderas'?'<span style="color:#64748b;font-size:10px">'+(r.seccion==='Supermercados'?'SUPER':'HIPER')+'</span>  ':'')+'<span style="color:'+CR[r.nombre]+'"><b>'+r.nombre+'</b></span>');
+ const traces=BL.map(b=>({type:'bar',orientation:'h',name:b,y:y,x:R.map(r=>r[b]),marker:{color:COL[b],line:{color:'#ffffff',width:1.5}},
+  text:R.map(r=>r[b]>=6?r[b].toFixed(0)+'%':''),textposition:'inside',insidetextanchor:'middle',textfont:{color:b==='Negocio'||b==='Calendario'?'#212B3F':'#ffffff',size:11},
+  customdata:R.map(r=>r.nombre),hovertemplate:'<b>%{customdata}</b><br>'+b+': %{x:.1f}%<extra></extra>'}));
+ const t='¿Qué explica la brecha de precios de cada '+(g==='banderas'?'bandera':'empresa')+'?';
+ const s='Peso de cada grupo de variables en la predicción sobre Octubre 2026';
+ const layout={font:{family:"'Roboto Mono', monospace",size:11,color:'#212B3F'},plot_bgcolor:'white',paper_bgcolor:'white',separators:',.',
+hoverlabel:{font:{family:"'Roboto Mono', monospace",size:11}},barmode:'stack',bargap:0.28,title:{text:`<span style="font-family:'Literata', Georgia, serif; font-weight:600; font-size:17px; color:#212B3F;">${t}</span><br><span style="font-family:'Literata', Georgia, serif; font-weight:400; font-size:13px; color:#64748b;">${s}</span>`,x:0.01,y:0.97,yanchor:'top'},
+  xaxis:{range:[0,100],ticksuffix:'%',showgrid:true,gridcolor:'#f1f5f9',zeroline:false,linecolor:'#212B3F'},
+  yaxis:{autorange:'reversed',automargin:true,tickfont:{size:11.5}},
+  legend:{orientation:'h',traceorder:'normal',yanchor:'bottom',y:1.01,xanchor:'left',x:0,bgcolor:'rgba(255,255,255,0)',font:{size:11}},
+  margin:{l:20,r:25,t:105,b:40}};
+ Plotly.react('chart-comp',traces,layout,{responsive:true,displayModeBar:false});}
+render();
+</script></body></html>

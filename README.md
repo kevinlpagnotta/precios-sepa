@@ -67,3 +67,10 @@ El SHAP sobre todas las celdas de octubre da los dos gráficos del artículo.
 ## Fuente
 
 Kevin Pagnotta en base a SEPA (Precios Claros), Secretaría de Industria y Comercio.
+
+## Licencia
+
+- **Código** (scripts, notebooks y página web): [MIT](LICENSE).
+- **Documento técnico** (`documento/`): [CC BY-NC-ND 4.0](documento/LICENCIA.md). Se puede compartir tal cual, citando
+  al autor y sin fines comerciales; no se permiten versiones modificadas.
+- **Artículo web y gráficos**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es).

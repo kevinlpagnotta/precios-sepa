@@ -30,7 +30,7 @@ Produce exactamente las cuatro tablas y los cuatro gráficos del Anexo I del doc
 | `output/` | Tablas (`.tex`) y gráficos (`.pdf`) que usa el documento |
 
 El panel se arma desde los microdatos SEPA por sucursal: precio promedio mensual de las sucursales de cada formato
-(Coto, Vea, DIA y Carrefour Express) en cada partido, con la llave de sucursales corregida y sin la sucursal `11|1018`.
+(Coto, Vea, DIA y Carrefour Express) en cada partido, con la llave de sucursales corregida.
 Se conservan solo los productos con precio en todos los meses y en todos los partidos donde opera el formato.
 
 ### Resultados principales

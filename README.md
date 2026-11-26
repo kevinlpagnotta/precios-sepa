@@ -12,7 +12,7 @@ Precios Claros (SEPA) de la Secretaría de Industria y Comercio.
 | Carpeta | Qué hay |
 |---|---|
 | `index.html`, `graficos/` | El artículo web, publicado con GitHub Pages, y sus gráficos interactivos |
-| `paper/` | Documento técnico: «¿Existe pass-through de los impuestos municipales a los precios? Evidencia para el caso de Lanús». Fuente LaTeX (Overleaf) y PDF |
+| `documento/` | Documento técnico: «¿Existe pass-through de los impuestos municipales a los precios? Evidencia para el caso de Lanús». Fuente LaTeX (Overleaf) y [PDF](https://kevinlpagnotta.github.io/precios-sepa/documento/pass_through_tasa_lanus.pdf) |
 | `did_lanus/` | Diferencias en diferencias y estudio de eventos del documento técnico, con los datos para replicarlo |
 | `brecha_lgbm/` | Notebook del modelo LightGBM + SHAP de la sección 2.2 del artículo |
 

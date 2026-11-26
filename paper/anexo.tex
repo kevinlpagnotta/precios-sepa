@@ -1,0 +1,87 @@
+% Anexo I: tablas y gráficos generados por la notebook de R (did_lanus.R).
+\newcommand{\fuente}{\textit{Fuente:} Elaboración propia en base a SEPA (Precios Claros), Secretaría de Industria y Comercio.}
+\newcommand{\nota}[1]{\par\medskip\begin{minipage}{\linewidth}\footnotesize\textit{Nota:} #1\par\smallskip\fuente\end{minipage}}
+
+\section*{Anexo I}
+\addcontentsline{toc}{section}{Anexo I}
+
+\begin{table}[htbp]
+  \caption{Dispersión de precios dentro de la misma cadena y entre cadenas. Total AMBA, diciembre de 2023 y octubre de 2026}
+  \label{tab:dispersion}
+  \centering\small
+  \resizebox{\linewidth}{!}{\input{tablas/tabla_dispersion.tex}}
+  \nota{Panel A: mismo producto en la misma cadena; cada formato de local (por ejemplo, Carrefour Express o Disco) se compara
+  contra sí mismo entre partidos (distintos partidos) y dentro de cada partido (mismo partido). Cadena = promedio de sus
+  formatos. Panel B: mismo producto en distintas cadenas del mismo formato: supermercados (DIA, Carrefour Express, Carrefour
+  Market, Disco y SuperChangomas) contra supermercados e hipermercados (Coto, Carrefour Hiper, Jumbo, Vea, Changomas e
+  HiperChangomas) contra hipermercados; el precio de cada cadena se compara con el promedio de las cadenas de su formato que
+  venden ese producto, en el mismo partido o en el conjunto del AMBA. Sin Maxi ni Lanús. Total = promedio de las cadenas.
+  Precios idénticos: diferencia de hasta \(\pm\)0,25\%.}
+\end{table}
+
+\begin{figure}[htbp]
+  \caption{Precios en Lanús y en el resto del AMBA: hipermercados y supermercados}
+  \label{fig:tendencias}
+  \centering
+  \includegraphics[width=0.65\linewidth]{figuras/tendencias.pdf}
+  \nota{100 \(\times\) logaritmo del precio promedio de la canasta de cada formato, julio de 2024 = 0. Mismo producto y mismo
+  formato de local; para el resto del AMBA se promedia entre partidos y los formatos tienen igual peso. La franja sombreada
+  marca septiembre y octubre de 2024.}
+\end{figure}
+
+\begin{table}[htbp]
+  \caption{Efecto del aumento de la tasa sobre los precios de los hipermercados de Lanús}
+  \label{tab:did}
+  \centering\small
+  \input{tablas/tabla_did.tex}
+  \nota{estimación de la ecuación~\eqref{eq:2}. Variable dependiente: 100 \(\times\) ln(precio). Errores estándar agrupados
+  por producto entre paréntesis. El p-valor de permutación se calcula según la sección~5. Ventana: abril de 2024 a octubre
+  de 2025, sin agosto ni septiembre de 2024. Traslado = efecto estimado / 3,86. EF: efectos fijos.}
+\end{table}
+
+\begin{table}[htbp]
+  \caption{Estudio de eventos: hipermercados de Lanús}
+  \label{tab:es}
+  \centering\small
+  \input{tablas/tabla_event_study.tex}
+  \nota{estimación de la ecuación~\eqref{eq:6}. Coeficientes en puntos porcentuales; referencia: julio de 2024. Errores
+  estándar agrupados por producto entre paréntesis.}
+\end{table}
+
+\begin{figure}[htbp]
+  \caption{Estudio de eventos: hipermercados de Lanús}
+  \label{fig:es}
+  \centering
+  \includegraphics[width=0.85\linewidth]{figuras/event_study.pdf}
+  \nota{coeficientes de la ecuación~\eqref{eq:6} con intervalos de confianza del 95\% (errores agrupados por producto);
+  referencia: julio de 2024. La franja gris muestra el rango de coeficientes que se obtiene al asignar el tratamiento a cada
+  uno de los demás partidos. La franja sombreada marca septiembre y octubre de 2024.}
+\end{figure}
+
+\begin{figure}[htbp]
+  \caption{Inferencia por permutación: efecto estimado al asignar el tratamiento a cada partido}
+  \label{fig:perm}
+  \centering
+  \includegraphics[width=0.68\linewidth]{figuras/permutacion.pdf}
+  \nota{hipermercados (Coto y Vea). Cada barra es el coeficiente de la ecuación~\eqref{eq:2} estimado asignando el
+  tratamiento al partido indicado, sin Lanús en la muestra de control. P-valor de permutación de Lanús: 0,048.}
+\end{figure}
+
+\begin{table}[htbp]
+  \caption{Prueba placebo: supermercados de Lanús (no alcanzados por el aumento)}
+  \label{tab:placebo}
+  \centering\small
+  \input{tablas/tabla_placebo.tex}
+  \nota{estimación de la ecuación~\eqref{eq:2} para los supermercados de Lanús (DIA y Carrefour Express), comparados con
+  los mismos formatos en el resto del AMBA. Errores estándar agrupados por producto entre paréntesis.}
+\end{table}
+
+\begin{figure}[htbp]
+  \caption{Prueba placebo: estudio de eventos para los supermercados de Lanús}
+  \label{fig:es_placebo}
+  \centering
+  \includegraphics[width=0.85\linewidth]{figuras/event_study_placebo.pdf}
+  \nota{coeficientes de la ecuación~\eqref{eq:6} estimada para los supermercados (DIA y Carrefour Express), con intervalos
+  de confianza del 95\% (errores agrupados por producto); referencia: julio de 2024. La franja gris muestra el rango de
+  coeficientes de los demás partidos.}
+\end{figure}

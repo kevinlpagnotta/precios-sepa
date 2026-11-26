@@ -1,0 +1,49 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Idioma y codificación ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{csquotes}
+
+% ---------- Página ----------
+\usepackage[a4paper,margin=3cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------- Matemática, tablas y figuras ----------
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=false,skip=6pt]{caption}
+\captionsetup[figure]{name=Gráfico}
+% Ubicación de tablas y gráficos del anexo: permite llenar mejor cada página
+\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.75}\setcounter{topnumber}{3}\setcounter{bottomnumber}{3}\setcounter{totalnumber}{5}
+\makeatletter\setlength{\@fptop}{0pt}\makeatother
+
+% ---------- Bibliografía (APA 7) ----------
+\usepackage[style=apa,backend=biber]{biblatex}
+\addbibresource{referencias.bib}
+
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+
+\title{¿Existe pass-through de los impuestos municipales a los precios? Evidencia para el caso de Lanús}
+\author{Kevin Pagnotta}
+\date{Noviembre de 2026}
+
+\begin{document}
+\maketitle
+
+\input{secciones}
+
+\printbibliography[title={Bibliografía}]
+
+\clearpage
+\input{anexo}
+
+\end{document}

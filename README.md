@@ -62,8 +62,7 @@ Versiones usadas: R 4.3.3, fixest 0.14.2, data.table 1.14.10 y ggplot2 3.4.4.
 LightGBM que predice la brecha de precios de cada sucursal frente a sus rivales del mismo formato (celda: sucursal ×
 categoría × origen × mes), entrenado de febrero de 2025 a septiembre de 2026 y evaluado en octubre de 2026, con el 70%
 de las sucursales de cada bandera y 10 semillas. En octubre, RMSE 3,03 y MAE 1,47 (persistencia: 3,71 y 1,52).
-El SHAP sobre todas las celdas de octubre da los dos gráficos del artículo. Los insumos no se incluyen: la notebook se
-comparte para mostrar las decisiones técnicas.
+El SHAP sobre todas las celdas de octubre da los dos gráficos del artículo.
 
 ## Fuente
 
